@@ -21,13 +21,17 @@ namespace Tema1
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> users = new List<string>() { "Corina", "Mama", "Simona", "Stefania", "Stefy" };
+        //List<string> users = new List<string>() { "Corina", "Mama", "Simona", "Stefania", "Stefy" };
         public MainWindow()
         {
-            this.Resources.Add("usersList", users);
+            //this.Resources.Add("usersList", users);
             InitializeComponent();
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -3,17 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="532.518" Width="800">
     <Window.Resources>
-        
-        
+        <x:Array x:Key="usersList" Type="sys:String">
+            <sys:String>Corina</sys:String>
+            <sys:String>Mama</sys:String>
+            <sys:String>Simona</sys:String>
+            <sys:String>Stefania</sys:String>
+            <sys:String>Stefy</sys:String>
+        </x:Array>
+
     </Window.Resources>
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#eaeaea">
             <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
-            <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="48" Canvas.Top="101"/>
+            <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="48" Canvas.Top="101" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Canvas>
 
     </Grid>
