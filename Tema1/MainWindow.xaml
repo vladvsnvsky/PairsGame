@@ -19,14 +19,19 @@
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#eaeaea">
             <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
-            <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="48" Canvas.Top="101" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\Tema1\Resources\images.png" 
+            VerticalAlignment = "Top"  Canvas.Left="464" Canvas.Top="97"/>
+
         </Canvas>
+
 
     </Grid>
 </Window>
