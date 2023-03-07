@@ -30,6 +30,37 @@
             <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\Tema1\Resources\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="464" Canvas.Top="97"/>
 
+            <Grid Canvas.Left="464" Canvas.Top="297" Width="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0"/>
+                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0"/>
+
+            </Grid>
+
+            <Grid Canvas.Left="100" Canvas.Top="418" Width="564">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="New User" Width="70" Grid.Row="0" Grid.Column="0" Margin="15,0,15,0"/>
+                <Button Content="Delete User" Width="70" Grid.Row="0" Grid.Column="1" Margin="15,0,15,0"/>
+                <Button Content="Play" Width="70" Grid.Row="0" Grid.Column="2" Margin="15,0,15,0"/>
+                <Button Content="Cancel" Width="70" Grid.Row="0" Grid.Column="3" Margin="15,0,15,0"/>
+            </Grid>
+
         </Canvas>
 
 

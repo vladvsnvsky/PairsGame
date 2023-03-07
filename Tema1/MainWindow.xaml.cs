@@ -33,7 +33,15 @@ namespace Tema1
 
         }
 
+        private void leftArrowBtn_clicked(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void rightArrowBtn_clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
