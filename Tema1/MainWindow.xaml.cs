@@ -42,6 +42,13 @@ namespace Tema1
         {
 
         }
+
+        private void newUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser n = new NewUser();
+            n.Show();
+           
+        }
     }
 
 }

@@ -17,7 +17,7 @@
 
     </Window.Resources>
     <Grid>
-        <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#eaeaea">
+        <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#FFA9F3ED">
             <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
             <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
@@ -39,8 +39,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0"/>
-                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0"/>
+                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0" BorderBrush="#FFDDDDDD"/>
+                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0" BorderBrush="#FFDDDDDD"/>
 
             </Grid>
 
@@ -55,10 +55,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Content="New User" Width="70" Grid.Row="0" Grid.Column="0" Margin="15,0,15,0"/>
-                <Button Content="Delete User" Width="70" Grid.Row="0" Grid.Column="1" Margin="15,0,15,0"/>
-                <Button Content="Play" Width="70" Grid.Row="0" Grid.Column="2" Margin="15,0,15,0"/>
-                <Button Content="Cancel" Width="70" Grid.Row="0" Grid.Column="3" Margin="15,0,15,0"/>
+                <Button Content="New User" Click="newUserBtn_Click" Grid.Row="0" Grid.Column="0" Margin="36,0,0,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Top"/>
+                <Button Content="Delete User" Grid.Row="0" Grid.Column="1" Margin="35,0,10,0" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
+                <Button Content="Play" Grid.Row="0" Grid.Column="2" Margin="36,0,10,0" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
+                <Button Content="Cancel" Grid.Row="0" Grid.Column="3" Margin="35,0,10,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
             </Grid>
 
         </Canvas>
