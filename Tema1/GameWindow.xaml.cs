@@ -17,11 +17,21 @@ namespace Tema1
     /// <summary>
     /// Interaction logic for Game.xaml
     /// </summary>
-    public partial class Game : Window
+    public partial class GameWindow : Window
     {
-        public Game()
+        public GameWindow()
         {
             InitializeComponent();
+        }
+
+        private void cancelBtn_clicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveBtn_clicked(object sender, RoutedEventArgs e)
+        {
+            //to do
         }
     }
 }

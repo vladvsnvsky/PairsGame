@@ -49,6 +49,12 @@ namespace Tema1
             n.Show();
            
         }
+
+        private void playBtn_clicked(object sender, RoutedEventArgs e)
+        {
+            GameWindow game_window = new GameWindow();
+            game_window.Show();
+        }
     }
 
 }
