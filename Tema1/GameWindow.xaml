@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema1"
         mc:Ignorable="d"
-        Title="Game" Height="450" Width="800">
+        Title="GameWindow" Height="450" Width="800">
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="794">
             <Grid Height="334" Canvas.Left="392" Canvas.Top="28" Width="332" ShowGridLines="True">
@@ -33,7 +33,7 @@
                 </Grid.ColumnDefinitions>
             </Grid>
 
-            <Image Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\Tema1\Resources\images.png" 
+            <Image Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="96" Canvas.Top="28"/>
 
             <TextBlock Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light">Username</TextBlock>
@@ -42,10 +42,6 @@
                 <Button Content="Cancel" Click="cancelBtn_clicked" Width="90"/>
                 <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="20,0,0,0"/>
             </StackPanel>
-
-
-
         </Canvas>
-
     </Grid>
 </Window>

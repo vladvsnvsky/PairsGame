@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Tema1
 {
     /// <summary>
-    /// Interaction logic for Game.xaml
+    /// Interaction logic for GameWindow.xaml
     /// </summary>
     public partial class GameWindow : Window
     {

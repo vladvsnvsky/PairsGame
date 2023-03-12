@@ -27,7 +27,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\Tema1\Resources\images.png" 
+            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="464" Canvas.Top="97"/>
 
             <Grid Canvas.Left="464" Canvas.Top="297" Width="200">
@@ -57,7 +57,7 @@
 
                 <Button Content="New User" Click="newUserBtn_Click" Grid.Row="0" Grid.Column="0" Margin="36,0,0,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Top"/>
                 <Button Content="Delete User" Grid.Row="0" Grid.Column="1" Margin="35,0,10,0" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
-                <Button Content="Play" Click="playBtn_clicked" Grid.Row="0" Grid.Column="2" Margin="35.6,0,10.2,0.4" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Bottom"/>
+                <Button Content="Play" Click="playBtn_clicked" Grid.Row="0" Grid.Column="2" Margin="35.6,0,10.2,0.4" IsEnabled="True" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Bottom"/>
                 <Button Content="Cancel" Grid.Row="0" Grid.Column="3" Margin="35,0,10,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
             </Grid>
 
