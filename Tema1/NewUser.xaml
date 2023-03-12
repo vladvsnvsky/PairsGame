@@ -19,8 +19,8 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Column="0" Fill="#FFC2FFE2" Margin="0,0,0,-53" />
-        <Rectangle Grid.Column="2" Fill="#FFC2FFE2" Margin="0,0,0,-53" />
+        <Rectangle Grid.Column="0" Fill="#FFA9F3ED" Margin="0,0,0,-53" />
+        <Rectangle Grid.Column="2" Fill="#FFA9F3ED" Margin="0,0,0,-53" />
 
         <TextBlock Grid.Column ="1" Grid.Row="0" FontSize="25" Margin="145,25,148,388" FontFamily="Bahnschrift Light"><Bold>Add user</Bold></TextBlock>
 
