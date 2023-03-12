@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlayerList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Players>
+		<Player>
+			<Name>Player 1</Name>
+			<ProfilePicture>base64-encoded-image-data</ProfilePicture>
+		</Player>
+		<Player>
+			<Name>Player 2</Name>
+			<ProfilePicture>base64-encoded-image-data</ProfilePicture>
+		</Player>
+		<Player>
+			<Name>Player 3</Name>
+			<ProfilePicture>base64-encoded-image-data</ProfilePicture>
+		</Player>
+	</Players>
+</PlayerList>
