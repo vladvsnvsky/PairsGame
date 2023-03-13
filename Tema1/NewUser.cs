@@ -29,5 +29,9 @@ namespace Tema1
             this.Close();
         }
 
+        private void AddUser_clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

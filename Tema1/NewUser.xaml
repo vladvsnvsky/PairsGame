@@ -35,7 +35,7 @@
             <TextBox Grid.Column="1"></TextBox>
 
         </Grid>
-        <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="164,165,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF30D6C7" Background="#FF30D6C7" FontFamily="Bahnschrift Light" IsEnabled="False"/>
+        <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="164,165,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF30D6C7" Background="#FF30D6C7" FontFamily="Bahnschrift Light" IsEnabled="True" Click="AddUser_clicked"/>
         <Button Content="Cancel" Click="Close_clicked" Grid.Column="1" HorizontalAlignment="Left" Margin="164,196,0,0" VerticalAlignment="Top" Width="75" Background="#FFF36262" BorderBrush="#FFF36262" Foreground="Black" FontFamily="Bahnschrift Light"/>
 
     </Grid>

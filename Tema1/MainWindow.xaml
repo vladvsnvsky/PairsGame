@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="532.518" Width="800">
-    <Window.Resources>
+    <!--<Window.Resources>
         <x:Array x:Key="usersList" Type="sys:String">
             <sys:String>Corina</sys:String>
             <sys:String>Mama</sys:String>
@@ -15,11 +15,11 @@
             <sys:String>Stefy</sys:String>
         </x:Array>
 
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#FFA9F3ED">
             <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
-            <ListBox ItemsSource="{StaticResource usersList}" Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox Name ="playersListBox" ItemsSource="{Binding playersList}" Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}"/>

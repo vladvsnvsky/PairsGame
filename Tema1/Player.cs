@@ -1,26 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Tema1
 {
+    [Serializable]
+    [XmlRoot("PlayerDetails")]
     public class Player
     {
-        public string Name { get; set; } // the name of the player
-        public Bitmap ProfilePicture { get; set; } // the player's profile picture
+        [XmlElement("PlayerName")]
+        public string Name { get; set; }
+        [XmlElement("PlayerProfilePicturePath")]
+        public string ProfilePicturePath { get; set; }
 
-        public Player()
-        {
-            
-        }
-
-        public Player(string name, Bitmap profilePicture)
-        {
-            Name = name;
-            ProfilePicture = profilePicture;
-        }
     }
 }
