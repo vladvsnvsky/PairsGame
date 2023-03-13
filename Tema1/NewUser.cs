@@ -31,7 +31,10 @@ namespace Tema1
 
         private void AddUser_clicked(object sender, RoutedEventArgs e)
         {
-
+            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            currentList.Players.Add(new Player { Name = textInput.Text, ProfilePicturePath = "test" });
+            XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            this.Close();
         }
     }
 }

@@ -20,4 +20,12 @@
     <PlayerName>Stefy</PlayerName>
     <PlayerProfilePicturePath>StefyPath</PlayerProfilePicturePath>
   </Players>
+  <Players>
+    <PlayerName>Ronaldo</PlayerName>
+    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
+  </Players>
+	<Players>
+		<PlayerName>Messi</PlayerName>
+		<PlayerProfilePicturePath>test</PlayerProfilePicturePath>
+	</Players>
 </List>

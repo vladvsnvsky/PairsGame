@@ -50,20 +50,21 @@ namespace Tema1
         {
             var playerList = _playerList;
 
-            var xmlSerializer = new XmlSerializer(typeof(PlayersList));
-
             using (var writer = new StreamWriter(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml"))
             {
+                var xmlSerializer = new XmlSerializer(typeof(PlayersList));
                 xmlSerializer.Serialize(writer, playerList);
+                writer.Close();
             }
         }
 
         public static PlayersList DeserializePlayersFromXmlFile(string location)
         {
-            var xmlDeserializer = new XmlSerializer(typeof(PlayersList));
-            using(var reader = new StreamReader(location))
+            FileStream stream = new FileStream(location, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using(var reader = new StreamReader(stream))
             {
-                PlayersList players =(PlayersList)xmlDeserializer.Deserialize(reader);
+                var xmlDeserializer = new XmlSerializer(typeof(PlayersList));
+                PlayersList players = (PlayersList)xmlDeserializer.Deserialize(reader);
                 return players;
             }
         }
