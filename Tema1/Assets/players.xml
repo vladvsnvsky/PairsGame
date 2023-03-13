@@ -24,8 +24,16 @@
     <PlayerName>Ronaldo</PlayerName>
     <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
   </Players>
-	<Players>
-		<PlayerName>Messi</PlayerName>
-		<PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-	</Players>
+  <Players>
+    <PlayerName>Messi</PlayerName>
+    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
+  </Players>
+  <Players>
+    <PlayerName>Pop</PlayerName>
+    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
+  </Players>
+  <Players>
+    <PlayerName>Giani</PlayerName>
+    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
+  </Players>
 </List>

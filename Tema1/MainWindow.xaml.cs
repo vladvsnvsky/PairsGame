@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -60,12 +61,31 @@ namespace Tema1
         }
     }
 
-    public class ListBoxData
+    public class ListBoxData: INotifyPropertyChanged
     {
 
         FileSystemWatcher fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
 
-        public ObservableCollection<string> ListOfItems { get; set; }
+        public ObservableCollection<string> listOfItems;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<string> ListOfItems {
+            get { return listOfItems; }
+            set
+            {
+                if (listOfItems != value)
+                {
+                    listOfItems = value;
+                    OnPropertyChanged(nameof(ListOfItems));
+                }
+            }
+        }
+
+        private void OnPropertyChanged(string v)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
+        }
 
         public ListBoxData()
         {
@@ -99,11 +119,11 @@ namespace Tema1
             var playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
 
             //this.ListOfItems.Clear();
-            ListOfItems = new ObservableCollection<string>();
+            listOfItems = new ObservableCollection<string>();
 
             foreach (Player p in playersList.Players)
             {
-                ListOfItems.Add(p.Name);
+                listOfItems.Add(p.Name);
             }
 
         }

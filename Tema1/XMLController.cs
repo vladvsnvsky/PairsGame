@@ -43,6 +43,7 @@ namespace Tema1
             using (var writer = new StreamWriter(location))
             {
                 xmlSerializer.Serialize(writer, playerList);
+                writer.Close();
             }
         }
 
