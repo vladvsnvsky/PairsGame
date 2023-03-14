@@ -38,5 +38,6 @@ namespace Tema1
             XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             this.Close();
         }
+
     }
 }

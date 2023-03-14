@@ -23,6 +23,7 @@ namespace Tema1
         public event EventHandler<BitmapImage> ImageSelected;
 
         string currentPath;
+        int currentPathIndex;
 
         List<string> paths = new List<string>
         {
@@ -37,8 +38,30 @@ namespace Tema1
         public ImageSelectorUC()
         {
             InitializeComponent();
+            currentPathIndex = 0;
+            currentPath = paths[currentPathIndex];
+            ImageSource imageSource = new BitmapImage(new Uri(currentPath));
+            CurrentImageSelected.Source = imageSource;
+        }
 
-            currentPath = paths[0];
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPathIndex < paths.Count() - 1)
+                currentPathIndex++;
+            else currentPathIndex = 0;
+
+            currentPath = paths[currentPathIndex];
+            ImageSource imageSource = new BitmapImage(new Uri(currentPath));
+            CurrentImageSelected.Source = imageSource;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPathIndex > 0)
+                currentPathIndex--;
+            else currentPathIndex = paths.Count()-1;
+
+            currentPath = paths[currentPathIndex];
             ImageSource imageSource = new BitmapImage(new Uri(currentPath));
             CurrentImageSelected.Source = imageSource;
         }
