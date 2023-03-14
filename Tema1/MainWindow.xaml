@@ -6,12 +6,18 @@
         xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="532.518" Width="800">
-    
+
     <Grid>
-        <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794" Background="#FFA9F3ED">
-            <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
+        <Canvas HorizontalAlignment="Left" Height="504" VerticalAlignment="Top" Width="794">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFFF8000" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+            <TextBlock Canvas.Left="257" TextWrapping="Wrap" Canvas.Top="45" FontSize="25" Foreground="#FFFF9C00" FontFamily="Bahnschrift Light" FontWeight="Bold"><Bold>Welcome Enjoy this game!</Bold></TextBlock>
             <ListBox Name ="playersListBox" ItemsSource="{Binding ListOfItems}"
-                     Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged">
+                     Height="245" Width="257" Canvas.Left="100" Canvas.Top="97" SelectionChanged="ListBox_SelectionChanged" Background="#FFE2A964">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}"/>
@@ -19,7 +25,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
+            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\Images\image5.png" 
             VerticalAlignment = "Top"  Canvas.Left="464" Canvas.Top="97"/>
 
             <Grid Canvas.Left="464" Canvas.Top="297" Width="200">
@@ -31,8 +37,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0" BorderBrush="#FFDDDDDD"/>
-                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0" BorderBrush="#FFDDDDDD"/>
+                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0" BorderBrush="White" Background="Black" Foreground="White"/>
+                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0" BorderBrush="White" Background="Black" Foreground="White"/>
 
             </Grid>
 
@@ -47,10 +53,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Content="New User" Click="newUserBtn_Click" Grid.Row="0" Grid.Column="0" Margin="36,0,0,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Top"/>
-                <Button Content="Delete User" Grid.Row="0" Grid.Column="1" Margin="35,0,10,0" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
-                <Button Content="Play" Click="playBtn_clicked" Grid.Row="0" Grid.Column="2" Margin="35.6,0,10.2,0.4" IsEnabled="True" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15" Height="22" VerticalAlignment="Bottom"/>
-                <Button Content="Cancel" Grid.Row="0" Grid.Column="3" Margin="35,0,10,0" FontFamily="Bahnschrift Light" BorderBrush="#FFDDDDDD" FontSize="15"/>
+                <Button Content="New User" Click="newUserBtn_Click" Grid.Row="0" Grid.Column="0" Margin="36,0,0,0" FontFamily="Bahnschrift Light" BorderBrush="#FFFF8000" FontSize="15" Height="22" VerticalAlignment="Top" Background="#FFFF8000"/>
+                <Button Name="deleteUserBtn"  Click="deleteUserBtn_Click" Content="Delete User" Grid.Row="0" Grid.Column="1" Margin="35,0,10,0" IsEnabled="False" FontFamily="Bahnschrift Light" BorderBrush="White" FontSize="15" Foreground="White" Background="Black"/>
+                <Button Name="playBtn" Content="Play" Click="playBtn_clicked" Grid.Row="0" Grid.Column="2" Margin="35.6,0,10.2,0.4" IsEnabled="True" FontFamily="Bahnschrift Light" BorderBrush="#FFFF8000" FontSize="15" Height="22" VerticalAlignment="Bottom" Background="#FFFF8000"/>
+                <Button Content="Cancel" Grid.Row="0" Grid.Column="3" Margin="35,0,10,0" FontFamily="Bahnschrift Light" BorderBrush="White" FontSize="15" Background="Black" Foreground="White"/>
             </Grid>
 
         </Canvas>

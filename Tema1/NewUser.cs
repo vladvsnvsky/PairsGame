@@ -22,6 +22,8 @@ namespace Tema1
         public NewUser()
         {
             InitializeComponent();
+            ImageSelectorUC imageSelectorUc = new ImageSelectorUC();
+
         }
 
         private void Close_clicked(object sender, RoutedEventArgs e)

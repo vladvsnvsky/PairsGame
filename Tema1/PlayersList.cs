@@ -11,7 +11,7 @@ namespace Tema1
     [XmlRoot("List")]
     public class PlayersList
     {
-        [XmlElement("Players")]
+        [XmlElement("Player")]
         public List<Player> Players; 
 
         public PlayersList()

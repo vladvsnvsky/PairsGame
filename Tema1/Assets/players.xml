@@ -1,39 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Players>
+  <Player>
     <PlayerName>Corina</PlayerName>
     <PlayerProfilePicturePath>CorinaPath</PlayerProfilePicturePath>
-  </Players>
-  <Players>
+  </Player>
+  <Player>
     <PlayerName>Mama</PlayerName>
     <PlayerProfilePicturePath>MamaPath</PlayerProfilePicturePath>
-  </Players>
-  <Players>
+  </Player>
+  <Player>
     <PlayerName>Simona</PlayerName>
     <PlayerProfilePicturePath>SimonaPath</PlayerProfilePicturePath>
-  </Players>
-  <Players>
+  </Player>
+  <Player>
     <PlayerName>Stefania</PlayerName>
     <PlayerProfilePicturePath>StefaniaPath</PlayerProfilePicturePath>
-  </Players>
-  <Players>
+  </Player>
+  <Player>
     <PlayerName>Stefy</PlayerName>
     <PlayerProfilePicturePath>StefyPath</PlayerProfilePicturePath>
-  </Players>
-  <Players>
-    <PlayerName>Ronaldo</PlayerName>
-    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-  </Players>
-  <Players>
-    <PlayerName>Messi</PlayerName>
-    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-  </Players>
-  <Players>
-    <PlayerName>Pop</PlayerName>
-    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-  </Players>
-  <Players>
-    <PlayerName>Giani</PlayerName>
-    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-  </Players>
+  </Player>
 </List>

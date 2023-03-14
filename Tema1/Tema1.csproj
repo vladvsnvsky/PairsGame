@@ -55,9 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ImageSelectorUC.xaml.cs">
+      <DependentUpon>ImageSelectorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayersList.cs" />
+    <Compile Include="SetGameDimensionsWindow.xaml.cs">
+      <DependentUpon>SetGameDimensionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XMLController.cs" />
     <Page Include="GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageSelectorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetGameDimensionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +130,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\players.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\image1.png" />
+    <Resource Include="Assets\Images\image2.png" />
+    <Resource Include="Assets\Images\image3.png" />
+    <Resource Include="Assets\Images\image4.png" />
+    <Resource Include="Assets\Images\image5.png" />
+    <Resource Include="Assets\Images\image6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

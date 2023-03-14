@@ -19,10 +19,49 @@ namespace Tema1
     /// </summary>
     public partial class GameWindow : Window
     {
-        public GameWindow()
+
+        Player player;
+        List<Button> buttons;
+
+        public int Nr_lines = 4;
+        public int Nr_columns = 4;
+        int Nr_buttons = 9;
+
+        public bool unset = true;
+
+        public GameWindow(Player _player, int lines=3, int columns=3)
         {
             InitializeComponent();
+
+            player = _player;
+
+            buttons = new List<Button>();
+
+            Nr_lines = lines;
+            Nr_columns = columns;
+
+            matrixGrid.Rows = Nr_lines;
+            matrixGrid.Columns = Nr_columns;
+            Nr_buttons = Nr_lines * Nr_columns;
+
+
+            for (int i = 0; i < Nr_lines; i++)
+                for(int j=0; j<Nr_columns; j++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "image" + i + j;
+                    btn.Content = "image"+i+j;
+                    buttons.Add(btn);
+                    matrixGrid.Children.Add(btn);
+                }
+
+            matrixGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            matrixGrid.VerticalAlignment = VerticalAlignment.Stretch;
+            matrixGrid.Width = columns*70;
+            matrixGrid.Height = lines*70;
         }
+
+       
 
         private void cancelBtn_clicked(object sender, RoutedEventArgs e)
         {

@@ -21,12 +21,16 @@ namespace Tema1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
 
         public MainWindow()
         {
             InitializeComponent();
+
+            deleteUserBtn.IsEnabled = false;
+            playBtn.IsEnabled = false;
 
             DataContext = new ListBoxData();
         }
@@ -35,7 +39,13 @@ namespace Tema1
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var selectedItem = playersListBox.SelectedItem;
+            var selectedIndex = playersListBox.SelectedIndex;
+            if(selectedItem!=null && selectedIndex != -1)
+            {
+                deleteUserBtn.IsEnabled = true;
+                playBtn.IsEnabled = true;
+            }
         }
 
         private void leftArrowBtn_clicked(object sender, RoutedEventArgs e)
@@ -56,8 +66,19 @@ namespace Tema1
 
         private void playBtn_clicked(object sender, RoutedEventArgs e)
         {
-            GameWindow game_window = new GameWindow();
-            game_window.Show();
+            SetGameDimensionsWindow sgdw = new SetGameDimensionsWindow(new Player() { Name = "Alex", ProfilePicturePath = "test" });
+            sgdw.Show();
+            //GameWindow game_window = new GameWindow();
+            //game_window.Show();
+        }
+
+        private void deleteUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = playersListBox.SelectedItem;
+            var selectedIndex = playersListBox.SelectedIndex;
+            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            currentList.Players.RemoveAt(selectedIndex);
+            XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
         }
     }
 
@@ -89,8 +110,6 @@ namespace Tema1
 
         public ListBoxData()
         {
-            
-
             fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
 
             fileWatcher.NotifyFilter = NotifyFilters.Attributes
@@ -152,6 +171,10 @@ namespace Tema1
             }
             Console.WriteLine($"Changed: {e.FullPath}");
         }
-    }
 
+        public void deleteItem(int index)
+        {
+            this.listOfItems.Remove(this.listOfItems[index]);
+        }
+    }
 }

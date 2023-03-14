@@ -5,42 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema1"
         mc:Ignorable="d"
-        Title="GameWindow" Height="450" Width="800">
-    <Grid>
+        Title="GameWindow" Height="443" Width="797">
+    <Grid Margin="0,0,1202,414">
         <Canvas HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="794">
-            <Grid Height="334" Canvas.Left="392" Canvas.Top="28" Width="332" ShowGridLines="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-            </Grid>
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFFF6800" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+
+            <UniformGrid Name="matrixGrid" Height="218" Canvas.Left="418" Canvas.Top="28" Width="300"/>
 
             <Image Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="96" Canvas.Top="28"/>
 
-            <TextBlock Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light">Username</TextBlock>
+            <TextBlock Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>
 
             <StackPanel Orientation="Horizontal" Width="200" Canvas.Left="61" Canvas.Top="343">
-                <Button Content="Cancel" Click="cancelBtn_clicked" Width="90"/>
-                <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="20,0,0,0"/>
+                <Button Content="Cancel" Click="cancelBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light"/>
+                <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="20,0,0,0" Foreground="#FFFFD100" BorderBrush="{x:Null}" FontFamily="Bahnschrift Light">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="70.346" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FF836A51" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </Canvas>
     </Grid>

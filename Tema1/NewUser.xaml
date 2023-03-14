@@ -8,7 +8,13 @@
       Height="532.518" Width="800"
       Title="NewUser">
 
-    <Grid Background="#FFF9F9F9">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF783F10" Offset="0"/>
+                <GradientStop Color="Black" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="450"/>
         </Grid.RowDefinitions>
@@ -19,10 +25,24 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Column="0" Fill="#FFA9F3ED" Margin="0,0,0,-53" />
-        <Rectangle Grid.Column="2" Fill="#FFA9F3ED" Margin="0,0,0,-53" />
+        <Rectangle Grid.Column="0" Margin="0,0,0,-53" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFFF7400" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Column="2" Margin="0,0,0,-53" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFFC7300" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <TextBlock Grid.Column ="1" Grid.Row="0" FontSize="25" Margin="145,25,148,388" FontFamily="Bahnschrift Light"><Bold>Add user</Bold></TextBlock>
+        <TextBlock Grid.Column ="1" Grid.Row="0" FontSize="25" Margin="145,25,148,388" FontFamily="Bahnschrift Light" Foreground="#FFFFB900"><Bold>Add user</Bold></TextBlock>
 
         <Grid Grid.Column="1" Margin="51,67,54,352">
             <Grid.RowDefinitions></Grid.RowDefinitions>
@@ -31,13 +51,14 @@
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Margin="46,5" FontFamily="Bahnschrift Light">Username</TextBlock>
-            <TextBox Name="textInput" Grid.Column="1"></TextBox>
+            <TextBlock Grid.Column="0" Margin="46,5" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>
+            <TextBox Name="textInput" Grid.Column="1" Background="#FF2C2C2C" BorderBrush="#FF090808" Foreground="White" SelectionBrush="#FF030303"></TextBox>
 
         </Grid>
-        <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="164,165,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF30D6C7" Background="#FF30D6C7" FontFamily="Bahnschrift Light" IsEnabled="True" Click="AddUser_clicked"/>
-        <Button Content="Cancel" Click="Close_clicked" Grid.Column="1" HorizontalAlignment="Left" Margin="164,196,0,0" VerticalAlignment="Top" Width="75" Background="#FFF36262" BorderBrush="#FFF36262" Foreground="Black" FontFamily="Bahnschrift Light"/>
+        <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="163,365,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FFFF7400" Background="#FFFF7400" FontFamily="Bahnschrift Light" IsEnabled="True" Click="AddUser_clicked"/>
+        <Button Content="Cancel" Click="Close_clicked" Grid.Column="1" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="75" Background="Black" BorderBrush="Black" Foreground="White" FontFamily="Bahnschrift Light"/>
 
+        <local:ImageSelectorUC Margin="98,108,102,37" Grid.Column="1"/>
     </Grid>
 
 </Window>
