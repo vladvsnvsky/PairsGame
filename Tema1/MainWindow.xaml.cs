@@ -24,7 +24,7 @@ namespace Tema1
     /// 
     public partial class MainWindow : Window
     {
-
+        private ListBoxData dataRef;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +32,9 @@ namespace Tema1
             deleteUserBtn.IsEnabled = false;
             playBtn.IsEnabled = false;
 
-            DataContext = new ListBoxData();
+            dataRef= new ListBoxData();
+            DataContext = dataRef;
         }
-
-       
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -60,7 +59,7 @@ namespace Tema1
 
         private void newUserBtn_Click(object sender, RoutedEventArgs e)
         {
-            NewUser n = new NewUser();
+            NewUser n = new NewUser(DataContext as ListBoxData);
             n.Show();
         }
 
@@ -74,18 +73,21 @@ namespace Tema1
 
         private void deleteUserBtn_Click(object sender, RoutedEventArgs e)
         {
+            dataRef.fileWatcher.EnableRaisingEvents = false;
             var selectedItem = playersListBox.SelectedItem;
             var selectedIndex = playersListBox.SelectedIndex;
             PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             currentList.Players.RemoveAt(selectedIndex);
             XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            dataRef.fileWatcher.EnableRaisingEvents = true;
+            dataRef.updateListBox();
         }
     }
 
     public class ListBoxData: INotifyPropertyChanged
     {
 
-        FileSystemWatcher fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
+        public FileSystemWatcher fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
 
         public ObservableCollection<string> listOfItems;
 
@@ -147,7 +149,17 @@ namespace Tema1
 
         }
 
+        public void updateListBox()
+        {
+            ListOfItems = new ObservableCollection<string>();
 
+            var playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+
+            foreach (Player p in playersList.Players)
+            {
+                ListOfItems.Add(p.Name);
+            }
+        }
         private void OnChanged(object sender, FileSystemEventArgs e)
         { 
             if (e.ChangeType != WatcherChangeTypes.Changed)
