@@ -58,7 +58,7 @@
         <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="163,365,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FFFF7400" Background="#FFFF7400" FontFamily="Bahnschrift Light" IsEnabled="True" Click="AddUser_clicked"/>
         <Button Content="Cancel" Click="Close_clicked" Grid.Column="1" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="75" Background="Black" BorderBrush="Black" Foreground="White" FontFamily="Bahnschrift Light"/>
 
-        <local:ImageSelectorUC Margin="98,108,102,37" Grid.Column="1"/>
+        <local:ImageSelectorUC x:Name="ImgSelector" Margin="98,108,102,37" Grid.Column="1"/>
     </Grid>
 
 </Window>

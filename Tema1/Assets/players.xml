@@ -1,23 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Player>
-    <PlayerName>Corina</PlayerName>
-    <PlayerProfilePicturePath>CorinaPath</PlayerProfilePicturePath>
-  </Player>
-  <Player>
-    <PlayerName>Mama</PlayerName>
-    <PlayerProfilePicturePath>MamaPath</PlayerProfilePicturePath>
-  </Player>
-  <Player>
-    <PlayerName>Simona</PlayerName>
-    <PlayerProfilePicturePath>SimonaPath</PlayerProfilePicturePath>
-  </Player>
-  <Player>
-    <PlayerName>Stefania</PlayerName>
-    <PlayerProfilePicturePath>StefaniaPath</PlayerProfilePicturePath>
-  </Player>
-  <Player>
-    <PlayerName>Codrut</PlayerName>
-    <PlayerProfilePicturePath>test</PlayerProfilePicturePath>
-  </Player>
-</List>
+<List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

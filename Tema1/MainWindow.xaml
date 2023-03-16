@@ -25,7 +25,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Image Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\Images\image5.png" 
+            <Image Name="ImageContainer" Width = "200" Height="200" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\Images\image5.png" 
             VerticalAlignment = "Top"  Canvas.Left="464" Canvas.Top="97"/>
 
             <Grid Canvas.Left="464" Canvas.Top="297" Width="200">

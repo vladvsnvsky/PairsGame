@@ -25,6 +25,10 @@ namespace Tema1
     public partial class MainWindow : Window
     {
         private ListBoxData dataRef;
+
+        private Player currentPlayer;
+
+        ImageSource imgSource;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +44,19 @@ namespace Tema1
         {
             var selectedItem = playersListBox.SelectedItem;
             var selectedIndex = playersListBox.SelectedIndex;
+            if (selectedIndex >= 0)
+            {
+                currentPlayer = dataRef.playersList.Players[selectedIndex];
+                imgSource = new BitmapImage(new Uri(currentPlayer.ProfilePicturePath, UriKind.Relative));
+                ImageContainer.Source = imgSource;
+            }
+            else
+            {
+                currentPlayer = null;
+                imgSource = new BitmapImage(new Uri("Assets/images.png", UriKind.Relative));
+                ImageContainer.Source = imgSource;
+            }
+            
             if(selectedItem!=null && selectedIndex != -1)
             {
                 deleteUserBtn.IsEnabled = true;
@@ -91,6 +108,8 @@ namespace Tema1
 
         public ObservableCollection<string> listOfItems;
 
+        public PlayersList playersList;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<string> ListOfItems {
@@ -137,7 +156,7 @@ namespace Tema1
             Console.ReadLine();
 
 
-            var playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
 
             //this.ListOfItems.Clear();
             listOfItems = new ObservableCollection<string>();
@@ -153,7 +172,7 @@ namespace Tema1
         {
             ListOfItems = new ObservableCollection<string>();
 
-            var playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            playersList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
 
             foreach (Player p in playersList.Players)
             {

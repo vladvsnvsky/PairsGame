@@ -23,10 +23,11 @@ namespace Tema1
         //private ObservableCollection<string> list;
 
         private ListBoxData dataRef;
+        
         public NewUser(ListBoxData listBoxData)
         {
             InitializeComponent();
-            ImageSelectorUC imageSelectorUc = new ImageSelectorUC();
+            
             dataRef = listBoxData;
             //this.list = listBoxData.listOfItems;
 
@@ -41,7 +42,7 @@ namespace Tema1
         {
             dataRef.fileWatcher.EnableRaisingEvents = false;
             PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
-            currentList.Players.Add(new Player { Name = textInput.Text, ProfilePicturePath = "test" });
+            currentList.Players.Add(new Player { Name = textInput.Text, ProfilePicturePath = ImgSelector.currentPath });
             //list.Add(textInput.Text);
             XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             dataRef.fileWatcher.EnableRaisingEvents = true;

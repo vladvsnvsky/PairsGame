@@ -22,24 +22,48 @@ namespace Tema1
     {
         public event EventHandler<BitmapImage> ImageSelected;
 
-        string currentPath;
+        public string currentPath;
+
+        private int currentIndex;
 
         List<string> paths = new List<string>
         {
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image1.png",
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image2.png",
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image3.png",
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image4.png",
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image5.png",
-            "D://FACULTATE//Facultate//An_2_sem_2//MVP_MediiVisualeDeProgramare//PairsGame//Tema1//Assets//Images//image6.png"
+            "Assets/Images/image1.png",
+            "Assets/Images/image2.png",
+            "Assets/Images/image3.png",
+            "Assets/Images/image4.png",
+            "Assets/Images/image5.png",
+            "Assets/Images/image6.png"
         };
 
         public ImageSelectorUC()
         {
             InitializeComponent();
 
-            currentPath = paths[0];
-            ImageSource imageSource = new BitmapImage(new Uri(currentPath));
+            currentIndex = 0;
+            currentPath = paths[currentIndex];
+
+            ImageSource imageSource = new BitmapImage(new Uri(currentPath,UriKind.Relative));
+            CurrentImageSelected.Source = imageSource;
+        }
+
+        private void LeftButton_clicked(object sender, RoutedEventArgs e)
+        {
+            if (currentIndex > 0)
+                currentIndex--;
+            else currentIndex = paths.Count()-1;
+            currentPath = paths[currentIndex];
+            ImageSource imageSource = new BitmapImage(new Uri(currentPath, UriKind.Relative));
+            CurrentImageSelected.Source = imageSource;
+        }
+
+        private void RightButton_clicked(object sender, RoutedEventArgs e)
+        {
+            if (currentIndex < paths.Count()-1)
+                currentIndex++;
+            else currentIndex = 0;
+            currentPath = paths[currentIndex];
+            ImageSource imageSource = new BitmapImage(new Uri(currentPath, UriKind.Relative));
             CurrentImageSelected.Source = imageSource;
         }
     }
