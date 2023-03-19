@@ -20,13 +20,15 @@ namespace Tema1
     /// </summary>
     public partial class ImageSelectorUC : UserControl
     {
-        public event EventHandler<BitmapImage> ImageSelected;
+        //public event EventHandler<BitmapImage> ImageSelected;
+
+        public Uri currentUri;
 
         public string currentPath;
 
-        private int currentIndex;
+        public int currentIndex;
 
-        List<string> paths = new List<string>
+        public List<string> paths = new List<string>
         {
             "Assets/Images/image1.png",
             "Assets/Images/image2.png",
@@ -36,14 +38,22 @@ namespace Tema1
             "Assets/Images/image6.png"
         };
 
+        private List<Uri> uris = new List<Uri>();
+
         public ImageSelectorUC()
         {
             InitializeComponent();
 
+            foreach (var p in paths)
+            {
+                uris.Add(new Uri(p, UriKind.Relative));
+            }
+
             currentIndex = 0;
+            currentUri = uris[currentIndex];
             currentPath = paths[currentIndex];
 
-            ImageSource imageSource = new BitmapImage(new Uri(currentPath,UriKind.Relative));
+            ImageSource imageSource = new BitmapImage(currentUri);
             CurrentImageSelected.Source = imageSource;
         }
 
@@ -52,8 +62,9 @@ namespace Tema1
             if (currentIndex > 0)
                 currentIndex--;
             else currentIndex = paths.Count()-1;
+            currentUri = uris[currentIndex];
             currentPath = paths[currentIndex];
-            ImageSource imageSource = new BitmapImage(new Uri(currentPath, UriKind.Relative));
+            ImageSource imageSource = new BitmapImage(uris[currentIndex]);
             CurrentImageSelected.Source = imageSource;
         }
 
@@ -62,8 +73,9 @@ namespace Tema1
             if (currentIndex < paths.Count()-1)
                 currentIndex++;
             else currentIndex = 0;
+            currentUri = uris[currentIndex];
             currentPath = paths[currentIndex];
-            ImageSource imageSource = new BitmapImage(new Uri(currentPath, UriKind.Relative));
+            ImageSource imageSource = new BitmapImage(currentUri);
             CurrentImageSelected.Source = imageSource;
         }
     }

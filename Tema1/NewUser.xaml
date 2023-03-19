@@ -42,9 +42,10 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock Grid.Column ="1" Grid.Row="0" FontSize="25" Margin="145,25,148,388" FontFamily="Bahnschrift Light" Foreground="#FFFFB900"><Bold>Add user</Bold></TextBlock>
+        <TextBlock Grid.Column ="1" Grid.Row="0" FontSize="25" Margin="146,10,147,403"
+                   FontFamily="Bahnschrift Light" Foreground="#FFFFB900"><Bold>Add user</Bold></TextBlock>
 
-        <Grid Grid.Column="1" Margin="51,67,54,352">
+        <Grid Grid.Column="1" Margin="54,42,51,377">
             <Grid.RowDefinitions></Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -52,13 +53,15 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Margin="46,5" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>
-            <TextBox Name="textInput" Grid.Column="1" Background="#FF2C2C2C" BorderBrush="#FF090808" Foreground="White" SelectionBrush="#FF030303"></TextBox>
+            <TextBox Name="textInput" TextChanged="checkAvailability"
+                     Grid.Column="1" Background="#FF2C2C2C" BorderBrush="#FF090808" Foreground="White" SelectionBrush="#FF030303"></TextBox>
 
         </Grid>
         <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="163,365,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FFFF7400" Background="#FFFF7400" FontFamily="Bahnschrift Light" IsEnabled="True" Click="AddUser_clicked"/>
         <Button Content="Cancel" Click="Close_clicked" Grid.Column="1" HorizontalAlignment="Left" Margin="163,396,0,0" VerticalAlignment="Top" Width="75" Background="Black" BorderBrush="Black" Foreground="White" FontFamily="Bahnschrift Light"/>
 
         <local:ImageSelectorUC x:Name="ImgSelector" Margin="98,108,102,37" Grid.Column="1"/>
+        <TextBlock Name="warning" Grid.Column="1" HorizontalAlignment="Left" Margin="146,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="Black" Foreground="#FFFF0404"/>
     </Grid>
 
 </Window>

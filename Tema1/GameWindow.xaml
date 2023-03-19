@@ -17,14 +17,16 @@
 
             <UniformGrid Name="matrixGrid" Height="218" Canvas.Left="418" Canvas.Top="28" Width="300"/>
 
-            <Image Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
+            <Image Name="profileImage" Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="96" Canvas.Top="28"/>
 
-            <TextBlock Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>
+            <TextBlock Name="usernameTextBlock" Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>
 
-            <StackPanel Orientation="Horizontal" Width="200" Canvas.Left="61" Canvas.Top="343">
-                <Button Content="Cancel" Click="cancelBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light"/>
-                <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="20,0,0,0" Foreground="#FFFFD100" BorderBrush="{x:Null}" FontFamily="Bahnschrift Light">
+            <StackPanel Orientation="Horizontal" Width="361" Canvas.Left="28" Canvas.Top="265" Height="96">
+                <Button Content="Cancel" Click="cancelBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
+                <Button Content="Continue" Click="continueBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
+                <Button Content="New Game" Click="newGameBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
+                <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="0,72,0,0" Foreground="#FFFFD100" BorderBrush="{x:Null}" FontFamily="Bahnschrift Light">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -41,6 +43,7 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
+            <TextBlock Canvas.Left="326" TextWrapping="Wrap" Canvas.Top="38" Foreground="White"/>
         </Canvas>
     </Grid>
 </Window>

@@ -82,7 +82,7 @@ namespace Tema1
 
         private void playBtn_clicked(object sender, RoutedEventArgs e)
         {
-            SetGameDimensionsWindow sgdw = new SetGameDimensionsWindow(new Player() { Name = "Alex", ProfilePicturePath = "test" });
+            SetGameDimensionsWindow sgdw = new SetGameDimensionsWindow(currentPlayer);
             sgdw.Show();
             //GameWindow game_window = new GameWindow();
             //game_window.Show();

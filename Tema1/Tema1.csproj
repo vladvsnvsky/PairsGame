@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,10 +34,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Board.cs" />
+    <Compile Include="GameController.cs" />
     <Compile Include="ImageSelectorUC.xaml.cs">
       <DependentUpon>ImageSelectorUC.xaml</DependentUpon>
     </Compile>
@@ -138,6 +143,55 @@
     <Resource Include="Assets\Images\image4.png" />
     <Resource Include="Assets\Images\image5.png" />
     <Resource Include="Assets\Images\image6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\1.png" />
+    <Resource Include="Assets\Images\10.png" />
+    <Resource Include="Assets\Images\11.png" />
+    <Resource Include="Assets\Images\12.png" />
+    <Resource Include="Assets\Images\13.png" />
+    <Resource Include="Assets\Images\14.png" />
+    <Resource Include="Assets\Images\15.png" />
+    <Resource Include="Assets\Images\17.png" />
+    <Resource Include="Assets\Images\18.png" />
+    <Resource Include="Assets\Images\19.png" />
+    <Resource Include="Assets\Images\2.png" />
+    <Resource Include="Assets\Images\20.png" />
+    <Resource Include="Assets\Images\21.png" />
+    <Resource Include="Assets\Images\22.png" />
+    <Resource Include="Assets\Images\23.png" />
+    <Resource Include="Assets\Images\24.png" />
+    <Resource Include="Assets\Images\25.png" />
+    <Resource Include="Assets\Images\26.png" />
+    <Resource Include="Assets\Images\27.png" />
+    <Resource Include="Assets\Images\28.png" />
+    <Resource Include="Assets\Images\29.png" />
+    <Resource Include="Assets\Images\3.png" />
+    <Resource Include="Assets\Images\30.png" />
+    <Resource Include="Assets\Images\31.png" />
+    <Resource Include="Assets\Images\33.png" />
+    <Resource Include="Assets\Images\34.png" />
+    <Resource Include="Assets\Images\35.png" />
+    <Resource Include="Assets\Images\36.png" />
+    <Resource Include="Assets\Images\37.png" />
+    <Resource Include="Assets\Images\38.png" />
+    <Resource Include="Assets\Images\39.png" />
+    <Resource Include="Assets\Images\4.png" />
+    <Resource Include="Assets\Images\40.png" />
+    <Resource Include="Assets\Images\41.png" />
+    <Resource Include="Assets\Images\42.png" />
+    <Resource Include="Assets\Images\43.png" />
+    <Resource Include="Assets\Images\44.png" />
+    <Resource Include="Assets\Images\45.png" />
+    <Resource Include="Assets\Images\5.png" />
+    <Resource Include="Assets\Images\6.png" />
+    <Resource Include="Assets\Images\7.png" />
+    <Resource Include="Assets\Images\8.png" />
+    <Resource Include="Assets\Images\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\card_unknown.png" />
+    <Resource Include="Assets\Images\card_unknown2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

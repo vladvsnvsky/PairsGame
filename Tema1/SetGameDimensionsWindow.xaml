@@ -10,8 +10,8 @@
 
         <Button x:Name="startBtn" Content="Start" IsEnabled="False" HorizontalAlignment="Left" Margin="111,210,0,0" VerticalAlignment="Top" Width="75" BorderBrush="White" Background="#FFD74600" Foreground="White" Click="Button_Click" AutomationProperties.Name="startBtn"/>
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="111,241,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" Background="Black" BorderBrush="#FFD74600" Foreground="#FFD74600" AutomationProperties.Name="cancelBtn"/>
-        <TextBox x:Name="linesInput" TextChanged="linesInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,70,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="120" AutomationProperties.Name="linesInput"/>
-        <TextBox x:Name="colsInput" TextChanged="colsInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,139,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="120" AutomationProperties.Name="colsInput"/>
+        <TextBox x:Name="linesInput" TextChanged="linesInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,70,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="120" AutomationProperties.Name="linesInput"/>
+        <TextBox x:Name="colsInput" TextChanged="colsInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,139,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="120" AutomationProperties.Name="colsInput"/>
         <Label Content="Set number of lines" HorizontalAlignment="Left" Margin="91,39,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
         <Label Content="Set number of cols" HorizontalAlignment="Left" Margin="91,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
 
