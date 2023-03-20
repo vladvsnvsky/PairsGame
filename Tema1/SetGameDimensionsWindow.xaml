@@ -12,8 +12,24 @@
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="111,241,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" Background="Black" BorderBrush="#FFD74600" Foreground="#FFD74600" AutomationProperties.Name="cancelBtn"/>
         <TextBox x:Name="linesInput" TextChanged="linesInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,70,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="120" AutomationProperties.Name="linesInput"/>
         <TextBox x:Name="colsInput" TextChanged="colsInputTextChanged" HorizontalAlignment="Left" Height="23" Margin="91,139,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="120" AutomationProperties.Name="colsInput"/>
-        <Label Content="Set number of lines" HorizontalAlignment="Left" Margin="91,39,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
-        <Label Content="Set number of cols" HorizontalAlignment="Left" Margin="91,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
+        <Label Content="Set number of height" HorizontalAlignment="Left" Margin="91,39,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
+        <Label Content="Set number of width" HorizontalAlignment="Left" Margin="91,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift Light" Background="Black" Foreground="#FFFF9700"/>
+        <Button x:Name="ContinueBtn" IsEnabled="False" Content="Continue" HorizontalAlignment="Left" Margin="111,14,0,0" VerticalAlignment="Top" Width="75" Click="Continue_Click" AutomationProperties.Name="cancelBtn" FontWeight="Bold" BorderBrush="White">
+            <Button.Foreground>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF00D444" Offset="1"/>
+                    <GradientStop Color="#FF008029" Offset="0.707"/>
+                    <GradientStop Color="#FF008029" Offset="0.253"/>
+                </RadialGradientBrush>
+            </Button.Foreground>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCFF911" Offset="0"/>
+                    <GradientStop Color="#FF23FF00" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
 
     </Grid>

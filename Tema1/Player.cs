@@ -15,5 +15,7 @@ namespace Tema1
         public string Name { get; set; }
         [XmlElement("PlayerProfilePicturePath")]
         public string ProfilePicturePath { get; set; }
+
+        [XmlElement("Board")] public Board savedGame { get; set; }
     }
 }

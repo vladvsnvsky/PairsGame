@@ -3,49 +3,123 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Tema1
 {
-    class Board
+    [XmlRoot(ElementName = "Column")]
+    public class Column
     {
-        private int Lines;
-        private int Cols;
-        public Board(int lines, int cols)
+
+        [XmlElement(ElementName = "Item1")]
+        public bool Item1 { get; set; }
+
+        [XmlElement(ElementName = "Item2")]
+        public string Item2 { get; set; }
+
+        public Column()
         {
-            Data = new Tuple<bool, string>[lines, cols];
-            Lines = lines;
-            Cols = cols;
+
         }
 
-        public Tuple<bool, string>[,] Data { get; set; }
+        public Column(bool state, string path)
+        {
+            Item1 = state;
+            Item2 = path;
+        }
+    }
 
-        public Tuple<bool, string> this[int line, int col]
+
+    [XmlRoot(ElementName = "Row")]
+    public class Row
+    {
+        [XmlElement(ElementName = "Column")]
+        public Column[] Data { get; set; }
+
+        public int Size;
+
+        public Row()
+        {
+
+        }
+        public Row(int length)
+        {
+            Data = new Column[length];
+            Size = length;
+        }
+
+        public Column this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Size)
+                    throw new IndexOutOfRangeException();
+
+                return Data[index];
+            }
+            set
+            {
+                if (index < 0 || index >= Size)
+                    throw new IndexOutOfRangeException();
+
+                Data[index] = value;
+            }
+        }
+    }
+
+
+
+    [XmlRoot(ElementName = "Board")]
+    public class Board
+    {
+        public int Height=0;
+        public int Width=0;
+
+        [XmlElement(ElementName = "Row")]
+        public Row[] rows;
+
+        public Board()
+        {
+
+        }
+        public Board(int height, int width)
+        {
+            Height = height;
+            Width = width;
+            rows = new Row[height];
+            for (int i = 0; i < height; i++)
+            {
+                rows[i] = new Row(width);
+            }
+        }
+
+        public Column this[int line, int col]
         {
             get
             { // Check that the index is within bounds.
-                if (line < 0 || line >= Lines)
+                if (line < 0 || line >= Height)
                 {
                     throw new IndexOutOfRangeException();
                 }
-                if (col < 0 || line >= Cols)
+                if (col < 0 || line >= Width)
                 {
                     throw new IndexOutOfRangeException();
                 }
 
                 // Return the value at the specified index.
-                return Data[line,col];
+                return rows[line].Data[col];
             }
             set{
-                if (line < 0 || line >= Lines)
+                if (line < 0 || line >= Height)
                 {
                     throw new IndexOutOfRangeException();
                 }
-                if (col < 0 || line >= Cols)
+                if (col < 0 || line >= Width)
                 {
                     throw new IndexOutOfRangeException();
                 }
 
-                Data[line,col] = value;
+                rows[line].Data[col] = value;
             }
         }
     }

@@ -38,6 +38,20 @@ namespace Tema1
             
         }
 
+        public GameController(Board b)
+        {
+            lines = b.Height;
+            cols = b.Width;
+            items = lines * cols;
+            gameBoard = b;
+            for (int i = 0; i < lines; i++)
+            {
+                for(int j=0;j<cols;j++)
+                    if (gameBoard[i, j].Item1 == true)
+                        score++;
+            }
+        }
+
         private void assignImagesToButtons()
         {
             //for every button on the grid
@@ -46,13 +60,19 @@ namespace Tema1
                 for (int c = 0; c < cols; c++)
                 {
                     var pathIndex = random.Next(images.Count());
-                    gameBoard.Data[l, c] = new Tuple<bool, string>(
+                    if (images.Count() > 0)
+                    {
+                        gameBoard[l, c] = new Column(
                             false, images[pathIndex]
                         );
-                    images.RemoveAt(pathIndex);
+                        images.RemoveAt(pathIndex);
+                    }
+
                     
                 }
+
             }
+            
         }
 
         public void startGame()
@@ -75,8 +95,8 @@ namespace Tema1
 
         public void mark(int line1, int col1, int line2, int col2)
         {
-            gameBoard.Data[line1,col1] = new Tuple<bool, string>(true, gameBoard.Data[line1, col1].Item2);
-            gameBoard.Data[line2, col2]= new Tuple<bool, string>(true, gameBoard.Data[line2, col2].Item2);
+            gameBoard[line1,col1] = new Column(true, gameBoard[line1, col1].Item2);
+            gameBoard[line2, col2]= new Column(true, gameBoard[line2, col2].Item2);
             this.score += 2;
         }
 

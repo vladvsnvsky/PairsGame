@@ -21,17 +21,24 @@ namespace Tema1
     public partial class SetGameDimensionsWindow : Window
     {
         Player player;
-        public SetGameDimensionsWindow(Player _player)
+
+        private ListBoxData dataRef;
+        public SetGameDimensionsWindow(Player _player, ListBoxData listBoxData)
         {
             InitializeComponent();
             this.player = _player;
+            if(player.savedGame!=null)
+            if (player.savedGame.Height != 0 && player.savedGame.Width != 0)
+                ContinueBtn.IsEnabled = true;
+
+            dataRef = listBoxData;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         { 
             int Nr_lines = Convert.ToInt32(linesInput.Text);
             int Nr_columns = Convert.ToInt32(colsInput.Text);
-            GameWindow gw = new GameWindow(player, Nr_lines, Nr_columns);
+            GameWindow gw = new GameWindow(player, listBoxData: dataRef, lines: Nr_lines, columns: Nr_columns);
             gw.Show();
             this.Close();
         }
@@ -72,6 +79,13 @@ namespace Tema1
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow gw = new GameWindow(player, listBoxData: dataRef, player.savedGame);
+            gw.Show();
             this.Close();
         }
     }

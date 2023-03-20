@@ -26,6 +26,8 @@ namespace Tema1
         private Image[,] buttons;
         private GameController game;
 
+        private ListBoxData dataRef;
+
         private Uri unknown_path = new Uri("Assets/Images/card_unknown.png", UriKind.Relative);
 
         private Uri[,] uris;
@@ -46,7 +48,7 @@ namespace Tema1
 
        
 
-        public GameWindow(Player _player, int lines=3, int columns=3)
+        public GameWindow(Player _player, ListBoxData listBoxData, int lines = 3, int columns = 3)
         {
             InitializeComponent();
 
@@ -57,9 +59,11 @@ namespace Tema1
 
             buttons = new Image[lines, columns];
 
+            dataRef = listBoxData;
 
             Nr_lines = lines;
             Nr_columns = columns;
+            int items = Nr_lines * Nr_columns;
 
             matrixGrid.Rows = Nr_lines;
             matrixGrid.Columns = Nr_columns;
@@ -79,12 +83,66 @@ namespace Tema1
 
                     matrixGrid.Children.Add(image);
                     buttons[i, j] = image;
+                    
                 }
+
+            if (items % 2 != 0)
+                buttons[Nr_lines - 1, Nr_columns - 1].Visibility = Visibility.Hidden;
 
             matrixGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
             matrixGrid.VerticalAlignment = VerticalAlignment.Stretch;
             matrixGrid.Width = columns*70;
             matrixGrid.Height = lines*70;
+        }
+
+        public GameWindow(Player player1, ListBoxData listBoxData, Board playerSavedGame)
+        {
+            InitializeComponent();
+
+            player = player1;
+            profileImage.Source = new BitmapImage(new Uri(player.ProfilePicturePath, UriKind.Relative));
+            usernameTextBlock.Text = player.Name;
+
+            Nr_lines = playerSavedGame.Height;
+            Nr_columns = playerSavedGame.Width;
+
+            matrixGrid.Rows = Nr_lines;
+            matrixGrid.Columns = Nr_columns;
+
+            Nr_buttons = Nr_lines * Nr_columns;
+
+            buttons = new Image[Nr_lines, Nr_columns];
+
+            dataRef = listBoxData;
+
+            t2.Interval = 1500;
+            t2.Tick += new EventHandler(checkBoard);
+
+            for (int i = 0; i < Nr_lines; i++)
+            for (int j = 0; j < Nr_columns; j++)
+            {
+                Image image = new Image();
+                image.Source = new BitmapImage(unknown_path);
+                image.Stretch = Stretch.UniformToFill;
+                image.Tag = $"{i}{j}";
+                image.MouseDown += Image_MouseDown;
+
+                matrixGrid.Children.Add(image);
+                buttons[i, j] = image;
+                if (playerSavedGame[i, j].Item1 == true)
+                    buttons[i, j].Visibility = Visibility.Hidden;
+            }
+
+            matrixGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            matrixGrid.VerticalAlignment = VerticalAlignment.Stretch;
+            matrixGrid.Width = Nr_columns * 70;
+            matrixGrid.Height = Nr_lines * 70;
+
+            game = new GameController(playerSavedGame);
+
+            createUris();
+
+            presentImagesForSeconds(2);
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -123,7 +181,7 @@ namespace Tema1
             int col1 = selected1_coords.Item2;
             int col2 = selected2_coords.Item2;
 
-            if (game.gameBoard.Data[line1, col1].Item2 == game.gameBoard.Data[line2, col2].Item2 && game.gameBoard.Data[line1, col1].Item1==false && game.gameBoard.Data[line2, col2].Item1==false)
+            if (game.gameBoard[line1, col1].Item2 == game.gameBoard[line2, col2].Item2 && game.gameBoard[line1, col1].Item1==false && game.gameBoard[line2, col2].Item1==false)
             {
                 game.mark(line1, col1, line2, col2);
                 buttons[line1, col1].Visibility = Visibility.Hidden;
@@ -149,7 +207,15 @@ namespace Tema1
 
         private void saveBtn_clicked(object sender, RoutedEventArgs e)
         {
-            //to do
+            dataRef.fileWatcher.EnableRaisingEvents = false;
+            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            for (int index = 0; index < currentList.Players.Count(); index++)
+            {
+                if (currentList.Players[index].Name == this.player.Name)
+                    currentList.Players[index].savedGame = game.gameBoard;
+            }
+            XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            dataRef.fileWatcher.EnableRaisingEvents = true;
         }
 
         private void continueBtn_clicked(object sender, RoutedEventArgs e)
@@ -209,6 +275,7 @@ namespace Tema1
             {
                 for (int j = 0; j < Nr_columns; j++)
                 {
+                    if(game.gameBoard[i, j]!=null)
                     uris[i, j] = new Uri(game.gameBoard[i, j].Item2, UriKind.Relative);
                 }
             }
