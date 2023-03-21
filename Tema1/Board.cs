@@ -91,6 +91,9 @@ namespace Tema1
             {
                 rows[i] = new Row(width);
             }
+
+            if (Height * Width % 2 != 0)
+                rows[Height - 1].Data[Width - 1] = new Column(true, "unknown");
         }
 
         public Column this[int line, int col]

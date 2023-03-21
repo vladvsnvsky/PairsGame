@@ -65,13 +65,17 @@ namespace Tema1
             Nr_columns = columns;
             int items = Nr_lines * Nr_columns;
 
+            game = new GameController(Nr_lines, Nr_columns);
+
+            
+
             matrixGrid.Rows = Nr_lines;
             matrixGrid.Columns = Nr_columns;
             Nr_buttons = Nr_lines * Nr_columns;
 
             t2.Interval = 1500;
             t2.Tick += new EventHandler(checkBoard);
-
+            
             for (int i = 0; i < Nr_lines; i++)
                 for(int j=0; j<Nr_columns; j++)
                 {
@@ -83,7 +87,6 @@ namespace Tema1
 
                     matrixGrid.Children.Add(image);
                     buttons[i, j] = image;
-                    
                 }
 
             if (items % 2 != 0)
@@ -208,11 +211,14 @@ namespace Tema1
         private void saveBtn_clicked(object sender, RoutedEventArgs e)
         {
             dataRef.fileWatcher.EnableRaisingEvents = false;
+            if (Nr_lines * Nr_columns % 2 != 0)
+                game.gameBoard[Nr_lines - 1, Nr_columns - 1] = new Column(true, "test");
             PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             for (int index = 0; index < currentList.Players.Count(); index++)
             {
                 if (currentList.Players[index].Name == this.player.Name)
                     currentList.Players[index].savedGame = game.gameBoard;
+                
             }
             XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             dataRef.fileWatcher.EnableRaisingEvents = true;

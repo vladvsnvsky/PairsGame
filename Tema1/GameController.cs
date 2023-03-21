@@ -35,7 +35,7 @@ namespace Tema1
             cols = nrColumns;
             items = lines * cols;
             gameBoard = new Board(lines, cols);
-            
+
         }
 
         public GameController(Board b)
