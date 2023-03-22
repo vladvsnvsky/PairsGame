@@ -104,7 +104,7 @@ namespace Tema1
                 {
                     throw new IndexOutOfRangeException();
                 }
-                if (col < 0 || line >= Width)
+                if (col < 0 || col >= Width)
                 {
                     throw new IndexOutOfRangeException();
                 }
@@ -117,7 +117,7 @@ namespace Tema1
                 {
                     throw new IndexOutOfRangeException();
                 }
-                if (col < 0 || line >= Width)
+                if (col < 0 || col >= Width)
                 {
                     throw new IndexOutOfRangeException();
                 }

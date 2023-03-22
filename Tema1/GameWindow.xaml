@@ -24,9 +24,8 @@
 
             <StackPanel Orientation="Horizontal" Width="361" Canvas.Left="28" Canvas.Top="265" Height="96">
                 <Button Content="Cancel" Click="cancelBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
-                <Button Content="Continue" Click="continueBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
-                <Button Content="New Game" Click="newGameBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
-                <Button Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="0,72,0,0" Foreground="#FFFFD100" BorderBrush="{x:Null}" FontFamily="Bahnschrift Light">
+                <Button Name="StartBtn" Content="Start Game" Click="newGameBtn_clicked" Width="90" Background="Black" BorderBrush="{x:Null}" Foreground="White" FontFamily="Bahnschrift Light" Margin="0,72,0,0"/>
+                <Button Name="SaveBtn" Content="Save Game" Click="saveBtn_clicked" Width="90" Margin="0,72,0,0" Foreground="#FFFFD100" BorderBrush="{x:Null}" FontFamily="Bahnschrift Light">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -44,6 +43,7 @@
                 </Button>
             </StackPanel>
             <TextBlock Canvas.Left="326" TextWrapping="Wrap" Canvas.Top="38" Foreground="White"/>
+            <TextBlock Name="WinningMessage" TextWrapping="Wrap" Text="You Won" Canvas.Left="480" Canvas.Top="101" Background="Black" Foreground="#FF74FF00" FontSize="45" Visibility="Hidden"/>
         </Canvas>
     </Grid>
 </Window>

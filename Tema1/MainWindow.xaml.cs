@@ -62,6 +62,12 @@ namespace Tema1
                 deleteUserBtn.IsEnabled = true;
                 playBtn.IsEnabled = true;
             }
+
+            if (selectedItem == null)
+            {
+                deleteUserBtn.IsEnabled = false;
+                playBtn.IsEnabled = false;
+            }
         }
 
         private void leftArrowBtn_clicked(object sender, RoutedEventArgs e)

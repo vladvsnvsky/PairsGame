@@ -46,7 +46,7 @@ namespace Tema1
             gameBoard = b;
             for (int i = 0; i < lines; i++)
             {
-                for(int j=0;j<cols;j++)
+                for (int j = 0; j < cols; j++)
                     if (gameBoard[i, j].Item1 == true)
                         score++;
             }
@@ -68,18 +68,18 @@ namespace Tema1
                         images.RemoveAt(pathIndex);
                     }
 
-                    
+
                 }
 
             }
-            
+
         }
 
         public void startGame()
         {
             gameIsActive = true;
             score = 0;
-            
+
             items = lines * cols;
             gameBoard = new Board(lines, cols);
 
@@ -95,10 +95,13 @@ namespace Tema1
 
         public void mark(int line1, int col1, int line2, int col2)
         {
-            gameBoard[line1,col1] = new Column(true, gameBoard[line1, col1].Item2);
-            gameBoard[line2, col2]= new Column(true, gameBoard[line2, col2].Item2);
+            gameBoard[line1, col1] = new Column(true, gameBoard[line1, col1].Item2);
+            gameBoard[line2, col2] = new Column(true, gameBoard[line2, col2].Item2);
             this.score += 2;
-        }
+            if (score >= items - 1)
+                stopGame();
+        
+    }
 
         public void stopGame()
         {

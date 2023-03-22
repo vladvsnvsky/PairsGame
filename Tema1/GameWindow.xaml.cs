@@ -101,7 +101,7 @@ namespace Tema1
         public GameWindow(Player player1, ListBoxData listBoxData, Board playerSavedGame)
         {
             InitializeComponent();
-
+            StartBtn.IsEnabled = false;
             player = player1;
             profileImage.Source = new BitmapImage(new Uri(player.ProfilePicturePath, UriKind.Relative));
             usernameTextBlock.Text = player.Name;
@@ -222,6 +222,7 @@ namespace Tema1
             }
             XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
             dataRef.fileWatcher.EnableRaisingEvents = true;
+            dataRef.updateListBox();
         }
 
         private void continueBtn_clicked(object sender, RoutedEventArgs e)
@@ -233,9 +234,9 @@ namespace Tema1
         private void newGameBtn_clicked(object sender, RoutedEventArgs e)
         {
             game = new GameController(Nr_lines, Nr_columns);
+            StartBtn.IsEnabled = false;
             game.startGame();
             createUris();
-
             presentImagesForSeconds(2);
 
         }
