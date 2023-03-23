@@ -67,6 +67,7 @@
     <Compile Include="SetGameDimensionsWindow.xaml.cs">
       <DependentUpon>SetGameDimensionsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Statistics.cs" />
     <Compile Include="XMLController.cs" />
     <Page Include="GameWindow.xaml">
       <SubType>Designer</SubType>

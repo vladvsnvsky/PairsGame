@@ -37,9 +37,6 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="leftArrowBtn" Width="45" Click="leftArrowBtn_clicked" Content="&lt;&lt;" Grid.Column="0" Margin="15,0,15,0" BorderBrush="White" Background="Black" Foreground="White"/>
-                <Button x:Name="rightArrowBtn" Width="45" Click="rightArrowBtn_clicked" Content="&gt;&gt;" Grid.Column="1" Margin="15,0,15,0" BorderBrush="White" Background="Black" Foreground="White"/>
-
             </Grid>
 
             <Grid Canvas.Left="100" Canvas.Top="418" Width="564">
