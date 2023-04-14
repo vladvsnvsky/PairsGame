@@ -28,7 +28,7 @@ namespace Tema1
 
         private ListBoxData dataRef;
 
-        private Uri unknown_path = new Uri("Assets/Images/card_unknown.png", UriKind.Relative);
+        private Uri unknown_path = new Uri(@"Assets\Images\card_unknown.png", UriKind.Relative);
 
         private Uri[,] uris;
 
@@ -150,30 +150,34 @@ namespace Tema1
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (selected1 == null)
+            if (game.gameIsActive == true)
             {
-                selected1 = (Image)sender;
-                string tag = selected1.Tag.ToString();
-                int line = int.Parse(tag[0].ToString());
-                int col = int.Parse(tag[1].ToString());
-                selected1_coords = new Tuple<int, int>(line, col);
-                ImageSource imageSource = new BitmapImage(uris[line,col]);
-                buttons[line, col].Source = imageSource;
-            }
-            else
-            {
-                if (selected2 == null)
+                if (selected1 == null)
                 {
-                    selected2 = (Image)sender;
-                    string tag = selected2.Tag.ToString();
+                    selected1 = (Image)sender;
+                    string tag = selected1.Tag.ToString();
                     int line = int.Parse(tag[0].ToString());
                     int col = int.Parse(tag[1].ToString());
-                    selected2_coords = new Tuple<int, int>(line, col);
+                    selected1_coords = new Tuple<int, int>(line, col);
                     ImageSource imageSource = new BitmapImage(uris[line, col]);
                     buttons[line, col].Source = imageSource;
-                    t2.Start();
+                }
+                else
+                {
+                    if (selected2 == null)
+                    {
+                        selected2 = (Image)sender;
+                        string tag = selected2.Tag.ToString();
+                        int line = int.Parse(tag[0].ToString());
+                        int col = int.Parse(tag[1].ToString());
+                        selected2_coords = new Tuple<int, int>(line, col);
+                        ImageSource imageSource = new BitmapImage(uris[line, col]);
+                        buttons[line, col].Source = imageSource;
+                        t2.Start();
+                    }
                 }
             }
+            
         }
 
         private void checkBoard(object sender, EventArgs e)
@@ -213,14 +217,14 @@ namespace Tema1
             dataRef.fileWatcher.EnableRaisingEvents = false;
             if (Nr_lines * Nr_columns % 2 != 0)
                 game.gameBoard[Nr_lines - 1, Nr_columns - 1] = new Column(true, "test");
-            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"Assets\players.xml");
             for (int index = 0; index < currentList.Players.Count(); index++)
             {
                 if (currentList.Players[index].Name == this.player.Name)
                     currentList.Players[index].savedGame = game.gameBoard;
                 
             }
-            XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            XMLController.SerializePlayersToXmlFile(currentList, @"Assets\players.xml");
             dataRef.fileWatcher.EnableRaisingEvents = true;
             dataRef.updateListBox();
         }
@@ -283,7 +287,7 @@ namespace Tema1
                 for (int j = 0; j < Nr_columns; j++)
                 {
                     if(game.gameBoard[i, j]!=null)
-                    uris[i, j] = new Uri(game.gameBoard[i, j].Item2, UriKind.Relative);
+                        uris[i, j] = new Uri(game.gameBoard[i, j].Item2, UriKind.Relative);
                 }
             }
         }
