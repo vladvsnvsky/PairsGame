@@ -17,7 +17,7 @@
 
             <UniformGrid Name="matrixGrid" Height="218" Canvas.Left="418" Canvas.Top="28" Width="300"/>
 
-            <Image Name="profileImage" Width = "117" Height="117" Source = "D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Resources\images.png" 
+            <Image Name="profileImage" Width = "117" Height="117" Source = "Assets\images.png" 
             VerticalAlignment = "Top"  Canvas.Left="96" Canvas.Top="28"/>
 
             <TextBlock Name="usernameTextBlock" Canvas.Left="114" Canvas.Top="150" Height="25" Width="82" FontSize="16" FontFamily="Bahnschrift Light" Foreground="White">Username</TextBlock>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Tema1
 {
@@ -99,9 +101,9 @@ namespace Tema1
             dataRef.fileWatcher.EnableRaisingEvents = false;
             var selectedItem = playersListBox.SelectedItem;
             var selectedIndex = playersListBox.SelectedIndex;
-            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            PlayersList currentList = XMLController.DeserializePlayersFromXmlFile(@"Assets\players.xml");
             currentList.Players.RemoveAt(selectedIndex);
-            XMLController.SerializePlayersToXmlFile(currentList, @"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\players.xml");
+            XMLController.SerializePlayersToXmlFile(currentList, @"Assets\players.xml");
             dataRef.fileWatcher.EnableRaisingEvents = true;
             dataRef.updateListBox();
         }
@@ -109,8 +111,7 @@ namespace Tema1
 
     public class ListBoxData: INotifyPropertyChanged
     {
-
-        public FileSystemWatcher fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
+        public FileSystemWatcher fileWatcher = new FileSystemWatcher("ENTER FULL PATH TO ASSETS FOLDER HERE");
 
         public ObservableCollection<string> listOfItems;
 
@@ -137,7 +138,7 @@ namespace Tema1
 
         public ListBoxData()
         {
-            fileWatcher = new FileSystemWatcher(@"D:\FACULTATE\Facultate\An_2_sem_2\MVP_MediiVisualeDeProgramare\PairsGame\Tema1\Assets\");
+            fileWatcher = new FileSystemWatcher(Path.GetFullPath("ENTER FULL PATH TO ASSETS FOLDER HERE"));
 
             fileWatcher.NotifyFilter = NotifyFilters.Attributes
                                     | NotifyFilters.CreationTime
